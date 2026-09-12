@@ -21,4 +21,4 @@ if st.button("Check Grade"):
     else:
         grade = "Fail"
 
-    st.success(f"{name}, your result is: {grade}")
+    st.success(f"🎉 {name}, your result is: {grade}")
