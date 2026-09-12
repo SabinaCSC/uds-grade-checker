@@ -7,37 +7,58 @@ st.set_page_config(
 )
 
 st.title("🎓 UDS Grade Checker")
-st.caption("Developed by Sabina Awenchiiminoi Akanko • BSc Computer Science • UDS Nyankpala")
 
-name = st.text_input("Student Name")
+st.caption(
+    "Developed by Sabina Akanko Awenchiiminoi • "
+    "BSc Computer Science • UDS Nyankpala"
+)
+
+st.divider()
+
+name = st.text_input("👤 Student Name")
 
 score = st.number_input(
-    "Enter Score",
+    "📝 Enter Score",
     min_value=0,
     max_value=100,
     step=1
 )
 
-if st.button("Check Grade"):
+if st.button("🔍 Check Grade", use_container_width=True):
 
-    if score >= 80:
-        grade = "Grade A"
-    elif score >= 75:
-        grade = "Grade B+"
-    elif score >= 70:
-        grade = "Grade B"
-    elif score >= 65:
-        grade = "Grade C+"
-    elif score >= 60:
-        grade = "Grade C"
-    elif score >= 50:
-        grade = "Pass"
+    if name.strip() == "":
+        st.warning("Please enter the student's name.")
+
     else:
-        grade = "Fail"
 
-    st.success(f"🎉 {name}, your result is: {grade}")
+        if score >= 80:
+            grade = "Grade A"
+        elif score >= 75:
+            grade = "Grade B+"
+        elif score >= 70:
+            grade = "Grade B"
+        elif score >= 65:
+            grade = "Grade C+"
+        elif score >= 60:
+            grade = "Grade C"
+        elif score >= 50:
+            grade = "Pass"
+        else:
+            grade = "Fail"
 
-    st.write("### Result Summary")
-    st.write(f"**Student:** {name}")
-    st.write(f"**Score:** {score}")
-    st.write(f"**Grade:** {grade}")
+        st.success(f"🎉 {name}, your result is: {grade}")
+
+        st.divider()
+
+        st.subheader("📊 Result Summary")
+
+        col1, col2, col3 = st.columns(3)
+
+        with col1:
+            st.metric("Student", name)
+
+        with col2:
+            st.metric("Score", f"{score}/100")
+
+        with col3:
+            st.metric("Grade", grade)
