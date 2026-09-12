@@ -2,19 +2,17 @@ import streamlit as st
 
 st.set_page_config(
     page_title="UDS Grade Checker",
-    page_icon="uds logo.png",
+    page_icon="🎓",
     layout="centered"
 )
-
-st.image("uds logo.png", width=120)
 
 st.title("🎓 UDS Grade Checker")
 st.caption("Developed by Sabina Akanko • BSc Computer Science • UDS Nyankpala")
 
-name = st.text_input("Enter your name")
+name = st.text_input("Student Name")
 
 score = st.number_input(
-    "Enter your score",
+    "Enter Score",
     min_value=0,
     max_value=100,
     step=1
@@ -38,3 +36,8 @@ if st.button("Check Grade"):
         grade = "Fail"
 
     st.success(f"🎉 {name}, your result is: {grade}")
+
+    st.write("### Result Summary")
+    st.write(f"**Student:** {name}")
+    st.write(f"**Score:** {score}")
+    st.write(f"**Grade:** {grade}")
