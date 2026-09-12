@@ -7,7 +7,7 @@ st.set_page_config(
 )
 
 st.title("🎓 UDS Grade Checker")
-st.caption("Developed by Sabina Akanko • BSc Computer Science • UDS Nyankpala")
+st.caption("Developed by Sabina Awenchiiminoi Akanko • BSc Computer Science • UDS Nyankpala")
 
 name = st.text_input("Student Name")
 
